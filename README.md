@@ -8,7 +8,7 @@ An AI-powered legal research assistant for **paralegals and junior lawyers**, bu
 
 ## 🏗️ Architecture
 
-Same 8-node LangGraph state machine as the E-Commerce FAQ Bot, adapted for legal research:
+This application uses an 8-node LangGraph state machine adapted for legal research:
 
 ```
 User Question
@@ -38,8 +38,9 @@ ollama pull qwen2.5:3b
 
 ### 3. Run the app
 ```bash
-streamlit run capstone_streamlit.py
+./start.sh
 ```
+This will start both the FastAPI backend and the Next.js frontend concurrently.
 
 ---
 
@@ -77,8 +78,11 @@ streamlit run capstone_streamlit.py
 ## 📁 Project Structure
 
 ```
-├── agent.py                  # LangGraph agent, KB, LLM, PDF chunking
-├── capstone_streamlit.py     # Streamlit UI with PDF upload
+├── core.py                   # LangGraph agent, KB, LLM logic
+├── api.py                    # FastAPI backend
+├── app.py                    # Legacy Streamlit UI
+├── ui/                       # Next.js frontend
+├── start.sh                  # Script to run both servers
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -95,5 +99,6 @@ streamlit run capstone_streamlit.py
 | Vector Store | ChromaDB |
 | Embeddings | sentence-transformers (all-MiniLM-L6-v2) |
 | PDF Parsing | pdfplumber / PyPDF2 |
-| UI | Streamlit |
+| Backend | FastAPI |
+| Frontend | Next.js, Tailwind CSS, shadcn/ui |
 | Memory | LangGraph MemorySaver |

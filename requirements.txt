@@ -1,0 +1,10 @@
+langchain
+langchain-ollama
+langgraph
+chromadb
+sentence-transformers
+streamlit
+httpx
+pdfplumber
+PyPDF2
+jupyter
